@@ -9,17 +9,12 @@ install:
 script:
     - hugo
 
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
-  email: tom.vollerthun@otto.de
-  name: TomVollerthun1337
-  verbose: true
-  keep-history: true
-  local-dir: public
-  repo: TomVollerthun1337.github.io
-  target_branch: master
-  on:
-    branch: master  # branch contains Hugo generator code
+after_success:
+- cd public
+- git init
+- git config user.email "travis@example.com"
+- git config user.name "Travis ci"
+- git add .
+- git commit -m "snapshot $(date '+%m/%d/%y %H:%M')"
+- git push --force --quiet "https://${GITHUB_TOKEN}@github.com/TomVollerthun1337/TomVollerthun1337.github.io.git" master:master 2>&1 >/dev/null
 
