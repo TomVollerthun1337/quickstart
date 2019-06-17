@@ -1,12 +1,16 @@
-# https://docs.travis-ci.com/user/deployment/pages/
-# https://docs.travis-ci.com/user/reference/xenial/
-# https://docs.travis-ci.com/user/languages/go/
-# https://docs.travis-ci.com/user/customizing-the-build/
-
 dist: xenial
 language: go
 go:
     - master
+
+git:
+    submodules: false
+
+before_install:
+    - sed -i 's/git@github.com:/https:\/\/TomVollerthun1337:$GITHUB_TOKEN@github.com\//' .gitmodules
+    - git submodule update --init --recursive
+
+
 
 # before_install
 # install - install any dependencies required
@@ -19,7 +23,6 @@ before_script:
 # script - run the build script
 script:
     - hugo
-    - echo "$CNAME_URL" > public/CNAME
 
 deploy:
   provider: pages
