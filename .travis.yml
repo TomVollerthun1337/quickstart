@@ -5,9 +5,6 @@ language: go
 install:
     - go get github.com/gohugoio/hugo    # consume time 70.85s
 
-before_script:
-    - rm -rf public 2> /dev/null
-
 # script - run the build script
 script:
     - hugo
