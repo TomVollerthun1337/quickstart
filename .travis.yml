@@ -16,5 +16,5 @@ after_success:
 - git config user.name "Travis ci"
 - git add .
 - git commit -m "snapshot $(date '+%m/%d/%y %H:%M')"
-- git push --force --quiet "https://${GITHUB_TOKEN}@github.com/TomVollerthun1337/TomVollerthun1337.github.io.git" master:master 2>&1 >/dev/null
+- git push --force "https://${GITHUB_TOKEN}@github.com/TomVollerthun1337/TomVollerthun1337.github.io.git" master:master
 
