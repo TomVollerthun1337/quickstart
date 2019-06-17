@@ -1,7 +1,4 @@
-dist: xenial
 language: go
-go:
-    - master
 
 # before_install
 # install - install any dependencies required
