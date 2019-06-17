@@ -21,6 +21,7 @@ deploy:
   verbose: true
   keep-history: true
   local-dir: public
+  repo: TomVollerthun1337.github.io
   on:
     branch: master  # branch contains Hugo generator code
 
